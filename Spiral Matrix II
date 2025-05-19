@@ -1,0 +1,26 @@
+while left <= right and top <= bottom:
+    #top left to top right
+    for column in range(left, right + 1):
+        res[top][column] = count
+        count += 1
+    top += 1
+
+    #top right to bottom right
+    for row in range(top, bottom + 1):
+        res[row][right] = count
+        count += 1
+    right -= 1
+            
+    #bottom right to bottom left
+    for column in range(right, left - 1, -1):
+        res[bottom][column] = count
+        count += 1
+    bottom -= 1
+
+    #bottom left to top left
+    for row in range(bottom, top - 1, -1):
+        res[row][left] = count
+        count += 1
+    left += 1
+        
+return res
